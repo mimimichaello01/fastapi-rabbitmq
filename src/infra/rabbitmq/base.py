@@ -14,8 +14,9 @@ class RabbitMQPublisherClient:
         self.channel = None
         self.exchange = None
 
-
-    @retry(stop=stop_after_attempt(10), wait=wait_exponential(multiplier=1), reraise=True)
+    @retry(
+        stop=stop_after_attempt(10), wait=wait_exponential(multiplier=1), reraise=True
+    )
     async def connect(self):
         self.connection = await aio_pika.connect_robust(
             host=self.config.host,

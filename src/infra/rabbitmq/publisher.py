@@ -14,7 +14,7 @@ class PublisherRabbitMQ(RabbitMQPublisherClient):
     """
     Клиент для отправки сообщений в RabbitMQ.
     """
-    
+
     async def publisher(self, message: Any, routing_key: str):
         if not self.channel or not self.exchange:
             raise Exception("Клиент RabbitMQ не подключен.")

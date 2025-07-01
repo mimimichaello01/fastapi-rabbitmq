@@ -13,7 +13,6 @@ from infra.db import db_helper
 from presentation.api.api_v1.routers.order_router import order_router
 
 
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     publisher = PublisherRabbitMQ()

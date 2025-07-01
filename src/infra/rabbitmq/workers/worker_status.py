@@ -2,15 +2,10 @@ from uuid import UUID
 
 from aio_pika import logger
 from infra.models.order import StatusOrder
-from infra.rabbitmq.workers.base import RabbitMQConsumerClient
 from infra.repositories.order_repository_impl import OrderRepositoryImpl
 
 
 
-
-
-
-# class OrderStatusWorker(RabbitMQConsumerClient):
 async def process_order_status_message(order_repo: OrderRepositoryImpl, payload: dict):
     try:
         order_id = UUID(payload["order_id"])
